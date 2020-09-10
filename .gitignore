@@ -1,0 +1,7 @@
+# Turn this into a whitelist (only version files/dirs I choose)
+*
+
+# Whitelisted files/dirs:
+!.gitignore
+!.vim/
+!.vim/**

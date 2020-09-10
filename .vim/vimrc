@@ -1,0 +1,55 @@
+" Don't pretend to be vi
+set nocompatible
+
+" Turn on syntax highlighting
+syntax on
+
+" Disable the default Vim startup message
+set shortmess+=I
+
+" Show line numbers (with relative line numbers)
+set number relativenumber
+
+" Tune searching to fit my needs
+set ignorecase incsearch "smartcase
+
+" Remaps
+nmap Q <Nop> " Disable Ex mode
+" TODO add remap for copy & paste from system clipboard?
+" Switching between windows?
+
+" Enable mouse support
+set mouse+=a
+
+" Always show the status line at the bottom, even if you only have one window open
+set laststatus=2
+
+" The backspace key has slightly unintuitive behavior by default. For example,
+" by default, you can't backspace before the insertion point set with 'i'.
+" This configuration makes backspace behave more reasonably, in that you can
+" backspace over anything.
+set backspace=indent,eol,start
+
+" By default, Vim doesn't let you hide a buffer (i.e. have a buffer that isn't
+" shown in any window) that has unsaved changes. This is to prevent you from "
+" forgetting about unsaved changes and then quitting e.g. via `:qa!`. We find
+" hidden buffers helpful enough to disable this protection. See `:help hidden`
+" for more information on this.
+set hidden
+
+" Plugin management
+call plug#begin('~/.vim/plugged')
+Plug 'ntpeters/vim-better-whitespace'
+Plug 'gruvbox-community/gruvbox'
+"Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" TODO others?
+" - git (maybe fugitive?)
+call plug#end()
+
+colorscheme gruvbox
+" TODO configure colorscheme more
+
+" TODO look at Ved's https://github.com/vedantroy/dotfiles/blob/master/.vimrc
+" https://www.youtube.com/watch?v=gnupOrSEikQ&list=WL
+" https://github.com/tpope/vim-sensible/blob/master/plugin/sensible.vim
+" https://vimhelp.org/usr_05.txt.html#vimrc-intro
