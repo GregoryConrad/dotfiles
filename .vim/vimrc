@@ -37,6 +37,11 @@ set backspace=indent,eol,start
 " for more information on this.
 set hidden
 
+" Automatically install plugins on first run
+if !isdirectory('~/.vim/plugged')
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
 " Plugin management
 call plug#begin('~/.vim/plugged')
 Plug 'ntpeters/vim-better-whitespace'
@@ -45,8 +50,6 @@ Plug 'gruvbox-community/gruvbox'
 " TODO others?
 " - git (maybe fugitive?)
 call plug#end()
-
-" TODO call PlugInstall automatically if plugged dir is missing
 
 colorscheme gruvbox
 " TODO configure colorscheme more
