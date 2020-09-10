@@ -46,6 +46,8 @@ Plug 'gruvbox-community/gruvbox'
 " - git (maybe fugitive?)
 call plug#end()
 
+" TODO call PlugInstall automatically if plugged dir is missing
+
 colorscheme gruvbox
 " TODO configure colorscheme more
 

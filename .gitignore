@@ -3,5 +3,5 @@
 
 # Whitelisted files/dirs:
 !.gitignore
-!.vim/
-!.vim/**
+!.vim/vimrc
+!.vim/autoload/plug.vim
