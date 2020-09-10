@@ -19,19 +19,15 @@ set autoindent smartindent
 " Fix backspace's unintuitive behavior
 set backspace=indent,eol,start
 
+" Allow hidden buffers
+set hidden
+
 " TODO play around with following settings and add more
 " Enable mouse support
 set mouse+=a
 
 " Always show the status line at the bottom, even if you only have one window open
 set laststatus=2
-
-" By default, Vim doesn't let you hide a buffer (i.e. have a buffer that isn't
-" shown in any window) that has unsaved changes. This is to prevent you from "
-" forgetting about unsaved changes and then quitting e.g. via `:qa!`. We find
-" hidden buffers helpful enough to disable this protection. See `:help hidden`
-" for more information on this.
-set hidden
 
 
 " Remaps
@@ -51,8 +47,17 @@ call plug#begin(plugged)
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'gruvbox-community/gruvbox'
 "Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" TODO others?
+" TODO others:
 " - git (maybe fugitive?)
+" - highlighted yank
+" - rename? or does coc do this
+" - auto pairs
+" - auto detect indentation
+"       tpope/sleuth
+"       ciaranm/detectindent
+" - fzf (maybe ctrl-p?)
+" - lang servers and similar (coc?)
+" - markdown highlighting
 call plug#end()
 
 
