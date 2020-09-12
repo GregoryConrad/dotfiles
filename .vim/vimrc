@@ -9,17 +9,21 @@ call plug#begin(vimPlugDir)
 Plug 'gruvbox-community/gruvbox'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'gabrielelana/vim-markdown'
+Plug 'machakann/vim-highlightedyank'
+" Plug 'tpope/vim-fugitive'
+" Plug 'airblade/vim-gitgutter'
+" Plug 'mhinz/vim-signify'
 " TODO others:
-" - git (maybe fugitive?)
 " - highlighted yank
 " - rename? or does coc do this
 " - auto pairs
 " - auto detect indentation
 "       tpope/sleuth
 "       ciaranm/detectindent
-" - fzf (maybe ctrl-p?)
 " - lang servers and similar (coc?)
-" - markdown highlighting
 " - commenter?
 call plug#end()
 
@@ -44,13 +48,12 @@ noremap <leader>p "+p
 noremap <leader>P "+P
 nnoremap Q <Plug>(coc-rename)
 " TODO coc remaps (go to def, etc.) with leader or g
+nmap <leader><tab> <plug>(fzf-maps-n)
+xmap <leader><tab> <plug>(fzf-maps-x)
+omap <leader><tab> <plug>(fzf-maps-o)
 
 
-" TODO these links look helpful
-" https://vimhelp.org/usr_05.txt.html#vimrc-intro
-" https://www.youtube.com/watch?v=gnupOrSEikQ
-" https://www.youtube.com/watch?v=Gs1VDYnS-Ac
-
+" The rest of this file are random settings that I prefer
 
 " Don't pretend to be vi
 set nocompatible
@@ -86,6 +89,7 @@ filetype plugin indent on
 
 " Configure the way windows appear (always show status line and ruler)
 set laststatus=2 ruler
+setlocal colorcolumn=80
 
 " Make CTRL-A & CTRL-X work as expected with numbers that start with 0
 set nrformats-=octal
@@ -102,14 +106,14 @@ set splitbelow splitright
 " Allow swap files, but change where they are stored
 let swapDir = $HOME.'/.vim/swap-files'
 if !isdirectory(swapDir)
-    call mkdir(swapDir, "p", 0700)
+    call mkdir(swapDir, 'p', 0700)
 endif
 let &directory = swapDir.'//,'.&directory
 
 " Allow undo files, but change where they are stored
 let &undodir = $HOME.'/.vim/undo-files'
 if !isdirectory(&undodir)
-    call mkdir(&undodir, "p", 0700)
+    call mkdir(&undodir, 'p', 0700)
 endif
 set undofile
 
