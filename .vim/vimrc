@@ -31,16 +31,19 @@ colorscheme gruvbox
 
 
 " Remaps
-nnoremap <SPACE> <Nop>
 let mapleader=" "
-nmap Q <Nop>
+nnoremap <SPACE> <Nop>
 nnoremap <leader>h <C-W><C-H>
 nnoremap <leader>j <C-W><C-J>
 nnoremap <leader>k <C-W><C-K>
 nnoremap <leader>l <C-W><C-L>
-" TODO add remap for copy & paste from system clipboard?
-" probably leader-y, leader-p & variants
-" remaps for coc once that is set up (rename, go to def, etc.) with leader
+noremap <leader>y "+y
+noremap <leader>Y "+Y
+noremap <leader>p "+p
+noremap <leader>P "+P
+nnoremap Q <Nop>
+" TODO coc remaps (rename, go to def, etc.) with leader
+" We can use Q to rename probably
 
 
 " TODO these links look helpful
@@ -72,7 +75,7 @@ set tabstop=8 softtabstop=4 shiftwidth=4 expandtab
 " Indentation settings
 set autoindent smartindent
 
-" Fix backspace's unintuitive behavior
+" Fix the unintuitive behavior of backspace
 set backspace=indent,eol,start
 
 " Allow hidden buffers

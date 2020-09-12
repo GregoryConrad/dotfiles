@@ -5,3 +5,6 @@
 !.gitignore
 !.vim/vimrc
 !.vim/autoload/plug.vim
+!.config/nvim/
+!.config/nvim/init.vim
+
