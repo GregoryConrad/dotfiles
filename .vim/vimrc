@@ -1,51 +1,13 @@
-" Don't pretend to be vi
-set nocompatible
-
-" Disable the default Vim startup message
-set shortmess+=I
-
-" Show line numbers with relative line numbers
-set number relativenumber
-
-" Tune searching to fit my needs
-set ignorecase incsearch "smartcase
-
-" Tab settings (see http://vimcasts.org/episodes/tabs-and-spaces/)
-set tabstop=8 softtabstop=4 shiftwidth=4 expandtab
-
-" Indentation settings
-set autoindent smartindent
-
-" Fix backspace's unintuitive behavior
-set backspace=indent,eol,start
-
-" Allow hidden buffers
-set hidden
-
-" TODO play around with following settings and add more
-" Enable mouse support
-set mouse+=a
-
-" Always show the status line at the bottom, even if you only have one window open
-set laststatus=2
-
-
-" Remaps
-nmap Q <Nop> " Disable Ex mode
-" TODO add remap for copy & paste from system clipboard?
-" Switching between windows?
-
-
 " Automatically install plugins on first run
-let plugged = $HOME.'/.vim/plugged'
-if !isdirectory(plugged)
+let vimPlugDir = $HOME.'/.vim/plugged'
+if !isdirectory(vimPlugDir)
     autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
 " Plugin list
-call plug#begin(plugged)
-Plug 'ntpeters/vim-better-whitespace'
+call plug#begin(vimPlugDir)
 Plug 'gruvbox-community/gruvbox'
+Plug 'ntpeters/vim-better-whitespace'
 "Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " TODO others:
 " - git (maybe fugitive?)
@@ -68,8 +30,83 @@ let g:gruvbox_contrast_dark='hard'
 colorscheme gruvbox
 
 
-" TODO look at the following:
-" https://github.com/vedantroy/dotfiles/blob/master/.vimrc
-" https://www.youtube.com/watch?v=gnupOrSEikQ&list=WL
-" https://github.com/tpope/vim-sensible/blob/master/plugin/sensible.vim
+" Remaps
+nnoremap <SPACE> <Nop>
+let mapleader=" "
+nmap Q <Nop>
+nnoremap <leader>h <C-W><C-H>
+nnoremap <leader>j <C-W><C-J>
+nnoremap <leader>k <C-W><C-K>
+nnoremap <leader>l <C-W><C-L>
+" TODO add remap for copy & paste from system clipboard?
+" probably leader-y, leader-p & variants
+" remaps for coc once that is set up (rename, go to def, etc.) with leader
+
+
+" TODO these links look helpful
 " https://vimhelp.org/usr_05.txt.html#vimrc-intro
+" https://www.youtube.com/watch?v=gnupOrSEikQ
+" https://www.youtube.com/watch?v=Gs1VDYnS-Ac
+
+
+" Don't pretend to be vi
+set nocompatible
+
+" Disable the default Vim startup message
+set shortmess+=I
+
+" Show line numbers with relative line numbers
+set number relativenumber
+
+" Tune searching to fit my needs
+set ignorecase incsearch "smartcase
+
+" Enable spell-checking because I am notorious for mispells (get it?)
+setlocal spell spelllang=en_us
+set complete+=kspell
+highlight SpellBad cterm=underline
+
+" Tab settings (see http://vimcasts.org/episodes/tabs-and-spaces/)
+set tabstop=8 softtabstop=4 shiftwidth=4 expandtab
+
+" Indentation settings
+set autoindent smartindent
+
+" Fix backspace's unintuitive behavior
+set backspace=indent,eol,start
+
+" Allow hidden buffers
+set hidden
+
+" Enable support for different filetypes
+filetype plugin indent on
+
+" Configure the way windows appear (always show status line and ruler)
+set laststatus=2 ruler
+
+" Make CTRL-A & CTRL-X work as expected with numbers that start with 0
+set nrformats-=octal
+
+" Give a preview of what you are scrolling into
+set scrolloff=4
+
+" Enable mouse support (note: copy-paste achieved by holding shift)
+set mouse+=a
+
+" Open new windows to bottom and right
+set splitbelow splitright
+
+" Allow swap files, but change where they are stored
+let swapDir = $HOME.'/.vim/swap-files'
+if !isdirectory(swapDir)
+    call mkdir(swapDir, "p", 0700)
+endif
+let &directory = swapDir.'//,'.&directory
+
+" Allow undo files, but change where they are stored
+let &undodir = $HOME.'/.vim/undo-files'
+if !isdirectory(&undodir)
+    call mkdir(&undodir, "p", 0700)
+endif
+set undofile
+
