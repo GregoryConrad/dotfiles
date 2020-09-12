@@ -8,7 +8,7 @@ endif
 call plug#begin(vimPlugDir)
 Plug 'gruvbox-community/gruvbox'
 Plug 'ntpeters/vim-better-whitespace'
-"Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " TODO others:
 " - git (maybe fugitive?)
 " - highlighted yank
@@ -20,6 +20,7 @@ Plug 'ntpeters/vim-better-whitespace'
 " - fzf (maybe ctrl-p?)
 " - lang servers and similar (coc?)
 " - markdown highlighting
+" - commenter?
 call plug#end()
 
 
@@ -41,9 +42,8 @@ noremap <leader>y "+y
 noremap <leader>Y "+Y
 noremap <leader>p "+p
 noremap <leader>P "+P
-nnoremap Q <Nop>
-" TODO coc remaps (rename, go to def, etc.) with leader
-" We can use Q to rename probably
+nnoremap Q <Plug>(coc-rename)
+" TODO coc remaps (go to def, etc.) with leader or g
 
 
 " TODO these links look helpful
