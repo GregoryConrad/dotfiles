@@ -3,8 +3,9 @@
 
 # Whitelisted files/dirs:
 !.gitignore
+!.vim/
 !.vim/vimrc
 !.vim/autoload/plug.vim
-!.config/nvim/
+!.config/
 !.config/nvim/init.vim
 
