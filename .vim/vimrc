@@ -3,7 +3,7 @@ let vimPlugDir = $HOME.'/.vim/plugged'
 if !isdirectory(vimPlugDir)
     autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
-
+" Ye bro these are feisty dot files!
 " Plugin list
 call plug#begin(vimPlugDir)
 Plug 'gruvbox-community/gruvbox'
