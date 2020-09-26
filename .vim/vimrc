@@ -47,6 +47,8 @@ noremap <leader>Y "+Y
 noremap <leader>p "+p
 noremap <leader>P "+P
 nnoremap <silent><leader>f :Files<CR>
+nnoremap <silent><leader>b :Buffers<CR>
+nnoremap <silent><leader>g :Rg<CR>
 nnoremap Q <Plug>(coc-rename)
 " TODO coc remaps (go to def, etc.) with leader or g
 
