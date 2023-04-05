@@ -1,0 +1,35 @@
+theme = "onedark"
+
+[editor]
+line-number = "relative"
+bufferline = "always"
+rulers = [100]
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.file-picker]
+hidden = false
+
+# [editor.indent-guides]
+# render = true
+# character = "┆"
+# skip-levels = 1
+
+[keys.normal]
+C-s = ":w"
+C-q = ":q"
+
+[keys.insert]
+C-space = "normal_mode"
+
+[keys.select]
+C-space = "normal_mode"
+
+[keys.normal."A-space"]
+m = ":run-shell-command melos run test"
+c = ":run-shell-command cargo test"
+
+# TODO minor mode for git?
