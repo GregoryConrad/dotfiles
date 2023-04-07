@@ -20,7 +20,7 @@ hidden = false
 
 [keys.normal]
 C-s = ":w"
-C-q = ":q"
+C-q = ":bc"
 
 [keys.insert]
 C-space = "normal_mode"
