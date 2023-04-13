@@ -10,8 +10,8 @@ if [ "$system_type" = "Darwin" ]; then
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   fi
 
-  echo "Installing helix and kitty"
-  brew install helix kitty
+  echo "Installing helix and warp"
+  brew install helix warp
 
 fi
 
