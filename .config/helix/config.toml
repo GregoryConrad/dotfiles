@@ -1,4 +1,4 @@
-theme = "onedark"
+theme = "custom"
 
 [editor]
 line-number = "relative"
@@ -13,13 +13,9 @@ select = "underline"
 [editor.file-picker]
 hidden = false
 
-# [editor.indent-guides]
-# render = true
-# character = "┆"
-# skip-levels = 1
-
 [keys.normal]
 C-s = ":w"
+# TODO map ctrl-q to :bc if >1 buffers are open, otherwise :q
 C-q = ":bc"
 
 [keys.insert]
@@ -27,11 +23,6 @@ C-space = "normal_mode"
 
 [keys.select]
 C-space = "normal_mode"
-
-# TODO maybe add a test key that is specified per language?
-[keys.normal."A-space"]
-m = ":run-shell-command melos run test"
-c = ":run-shell-command cargo test"
 
 # TODO minor mode for git?
 # Probably with capital G since you can go to line # with gg anyways

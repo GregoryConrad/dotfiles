@@ -1,0 +1,4 @@
+inherits = "onedark"
+
+"ui.background" = {}
+"ui.gutter" = { bg = "black" }
