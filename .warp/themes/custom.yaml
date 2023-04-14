@@ -1,7 +1,10 @@
-accent: "#72f64a"
-background: "#000000"
-foreground: "#ffb055"
+accent: "#d787ff"
 details: "darker"
+foreground: "#dfdfff"
+background: "#181818"
+background_image:
+  path: background.jpg
+  opacity: 30
 terminal_colors:
   normal:
     black: "#616161"
