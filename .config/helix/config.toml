@@ -14,15 +14,12 @@ select = "underline"
 hidden = false
 
 [keys.normal]
+"X" = ["extend_line_up", "extend_to_line_bounds"]
 C-s = ":w"
-# TODO map ctrl-q to :bc if >1 buffers are open, otherwise :q
-C-q = ":bc"
+C-q = ":bc" # TODO map to :bc if >1 buffers are open, otherwise :q
 
 [keys.insert]
 C-space = "normal_mode"
 
 [keys.select]
 C-space = "normal_mode"
-
-# TODO minor mode for git?
-# Probably with capital G since you can go to line # with gg anyways
