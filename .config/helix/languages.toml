@@ -1,3 +1,6 @@
 [[language]]
 name = "dart"
 rulers = [80]
+
+[language-server.rust-analyzer.config]
+check.command = "clippy"
