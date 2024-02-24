@@ -3,14 +3,13 @@
 system_type=$(uname -s)
 
 if [ "$system_type" = "Darwin" ]; then
+  echo "Installing some necessities..."
+  brew tap homebrew/cask-fonts && brew install --casks font-hack unnaturalscrollwheels
+  brew install helix alacritty zellij
   echo "Some commands you may want to copy-paste to get set up quickly:"
-  echo brew install helix warp
-  echo brew install colima docker
-  echo brew install gh git-lfs
-  echo brew install ollama dustinblackman/tap/oatmeal
-  echo brew install --casks unnaturalscrollwheels
-  echo brew install --casks flutter google-chrome ultimaker-cura vlc zoom 
+  echo "brew install gh git-lfs colima docker ollama dustinblackman/tap/oatmeal"
+  echo "brew install --casks flutter google-chrome ultimaker-cura vlc zoom"
 fi
 
 yes "" | ssh-keygen -N "" -t ed25519 -C "gregorysconrad@gmail.com"
-echo "Now go add the newly created SSH key to GitHub!"
+echo "Now go add your newly created SSH key to GitHub!"

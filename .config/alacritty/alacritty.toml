@@ -1,0 +1,20 @@
+[window]
+opacity = 0.9
+blur = true
+
+[scrolling]
+history = 100000
+
+[font]
+normal = { family = "Hack" }
+size = 14
+
+[[keyboard.bindings]]
+key = "Escape"
+mods = "Command"
+action = "ToggleSimpleFullscreen"
+
+[[keyboard.bindings]]
+key = "Escape"
+mods = "Command"
+command = { program = "/opt/homebrew/bin/alacritty", args = ["msg", "config", "window.blur=false"] }

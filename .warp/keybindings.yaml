@@ -1,6 +1,0 @@
----
-"pane_group:navigate_down": cmd-meta-j
-"pane_group:navigate_right": cmd-meta-l
-"pane_group:navigate_left": cmd-meta-h
-"pane_group:navigate_up": cmd-meta-k
-"workspace:toggle_ai_assistant": ctrl-cmd-space
