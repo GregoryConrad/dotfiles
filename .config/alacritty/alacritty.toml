@@ -1,6 +1,7 @@
 [window]
 opacity = 0.9
 blur = true
+option_as_alt = "OnlyLeft"
 
 [scrolling]
 history = 100000
