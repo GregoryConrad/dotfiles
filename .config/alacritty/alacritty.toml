@@ -1,6 +1,5 @@
 [window]
-opacity = 0.9
-blur = true
+opacity = 0.85
 option_as_alt = "OnlyLeft"
 
 [scrolling]
@@ -14,8 +13,3 @@ size = 14
 key = "Escape"
 mods = "Command"
 action = "ToggleSimpleFullscreen"
-
-[[keyboard.bindings]]
-key = "Escape"
-mods = "Command"
-command = { program = "/opt/homebrew/bin/alacritty", args = ["msg", "config", "window.blur=false"] }
