@@ -13,10 +13,12 @@ select = "underline"
 [editor.file-picker]
 hidden = false
 
+# https://docs.helix-editor.com/keymap.html
 [keys.normal]
 "X" = ["extend_line_up", "extend_to_line_bounds"]
 C-s = ":w"
 C-q = ":bc" # TODO map to :bc if >1 buffers are open, otherwise :q
+C-m = ":toggle lsp.display-messages"
 
 [keys.insert]
 C-space = "normal_mode"
