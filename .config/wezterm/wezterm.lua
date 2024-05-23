@@ -1,6 +1,8 @@
 local wezterm = require 'wezterm'
 local act = wezterm.action
 
+require 'scrollback'
+
 local config = {}
 
 config.font = wezterm.font 'Hack'
@@ -47,6 +49,7 @@ config.color_scheme = 'Catppuccin Mocha (Gogh)'
 config.keys = {
   { key = 'Enter', mods = 'ALT', action = act.ToggleFullScreen, },
   { key = 'q', mods = 'ALT', action = act.QuitApplication, },
+  { key = 'o', mods = 'ALT', action = act.EmitEvent 'open-hx-with-scrollback', },
 
   { key = 'h', mods = 'ALT', action = act.ActivatePaneDirection 'Left', },
   { key = 'l', mods = 'ALT', action = act.ActivatePaneDirection 'Right', },
@@ -68,10 +71,9 @@ config.keys = {
     -- bind "Alt w" { ToggleFloatingPanes; }
     -- bind "Alt e" { TogglePaneEmbedOrFloating; }
     -- bind "Alt b" { MovePaneBackwards; }
+
   -- Using defaults for tabs (CMD t, CMD 1-9)
   -- Using defaults for find (CMD f, CTRL-r to toggle case sensitivity & regex modes) 
-  -- TODO opening scrollback may be an interesting idea, see:
-  -- https://wezfurlong.org/wezterm/config/lua/wezterm/on.html#predefined-events
 }
 
 return config
