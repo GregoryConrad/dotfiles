@@ -3,15 +3,28 @@ local act = wezterm.action
 
 require 'scrollback'
 
-local config = {}
+local config = wezterm.config_builder()
+config:set_strict_mode(true)
 
 config.font = wezterm.font 'Hack'
 config.font_size = 14
+config.color_scheme = 'Catppuccin Mocha (Gogh)'
+config.native_macos_fullscreen_mode = true
 
-config.use_fancy_tab_bar = false
-config.hide_tab_bar_if_only_one_tab = true
+-- Switch between integrated tab bar and retro tab bar based on whether we are fullscreen
+function set_tab_bar_config(config, is_fullscreen)
+  if is_fullscreen then
+    config.window_decorations = nil
+    config.use_fancy_tab_bar = false
+    config.hide_tab_bar_if_only_one_tab = true
+  else
+    config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
+    config.use_fancy_tab_bar = true
+    config.hide_tab_bar_if_only_one_tab = false
+  end
+end
 
--- We switch between just an opacity and a background image based on whether we are fullscreen
+-- Switch between just an opacity and a background image based on whether we are fullscreen
 function set_background(config, is_fullscreen)
   if is_fullscreen then
     config.window_background_opacity = nil
@@ -39,12 +52,11 @@ end
 
 wezterm.on('window-resized', function(window, pane)
   local overrides = window:get_config_overrides() or {}
-  set_background(overrides, window:get_dimensions().is_full_screen)
+  local is_fullscreen = window:get_dimensions().is_full_screen
+  set_background(overrides, is_fullscreen)
+  set_tab_bar_config(overrides, is_fullscreen)
   window:set_config_overrides(overrides)
 end)
-
-config.native_macos_fullscreen_mode = true
-config.color_scheme = 'Catppuccin Mocha (Gogh)'
 
 config.keys = {
   { key = 'Enter', mods = 'ALT', action = act.ToggleFullScreen, },
