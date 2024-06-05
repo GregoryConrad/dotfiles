@@ -15,3 +15,5 @@
 - After kitty tried [Alacritty](https://alacritty.org) + [Zellij](https://zellij.dev)
   - Alacritty had some rough edges that I didn't like (was _too_ minimal)
   - Zellij is modal, which I don't want for a multiplexer. I just want to hit Alt+Key and move on
+- Finally switched to `fish` from `zsh` after I realized I get everything I want for free in `fish`
+  - Plus it's way more understandable and, as an added bonus, now written in Rust

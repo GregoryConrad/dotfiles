@@ -5,8 +5,15 @@ system_type=$(uname -s)
 if [ "$system_type" = "Darwin" ]; then
   echo "Installing some necessities..."
   brew tap homebrew/cask-fonts && brew install --casks font-hack unnaturalscrollwheels
-  brew install helix wezterm
-  echo "Some commands you may want to copy-paste to get set up quickly:"
+  brew install fish helix wezterm
+  fish -c "fish_add_path $(brew --prefix)/bin $(brew --prefix)/sbin"
+  fish -c "fish_update_completions"
+  fish -c "set -U fish_greeting"
+  echo "Adding fish to /etc/shells..."
+  sudo echo $(which fish) >> /etc/shells
+  echo "Setting default shell to fish..."
+  chsh -s $(which fish)
+  echo "Some other commands you may want to copy-paste to get set up quickly:"
   echo "brew install gh git-lfs ollama dustinblackman/tap/oatmeal"
   echo "brew install --casks flutter google-chrome ultimaker-cura vlc zoom docker"
 fi
