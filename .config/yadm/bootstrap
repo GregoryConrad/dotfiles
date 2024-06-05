@@ -8,7 +8,6 @@ if [ "$system_type" = "Darwin" ]; then
   brew install fish helix wezterm
   fish -c "fish_add_path $(brew --prefix)/bin $(brew --prefix)/sbin"
   fish -c "fish_update_completions"
-  fish -c "set -U fish_greeting"
   echo "Adding fish to /etc/shells..."
   sudo echo $(which fish) >> /etc/shells
   echo "Setting default shell to fish..."
