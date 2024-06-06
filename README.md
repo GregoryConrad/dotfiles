@@ -17,3 +17,4 @@
   - Zellij is modal, which I don't want for a multiplexer. I just want to hit Alt+Key and move on
 - Finally switched to `fish` from `zsh` after I realized I get everything I want for free in `fish`
   - Plus it's way more understandable and, as an added bonus, now written in Rust
+- Add a slightly-modified version of [fish-helix](https://github.com/sshilovsky/fish-helix)
