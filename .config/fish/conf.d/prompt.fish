@@ -44,6 +44,9 @@ function fish_prompt
             "$(set_color -b $next_bg_color)$(set_color $bg_color)"
     end
     printf "$(set_color normal) "
+
+    # Force update the terminal with the current hostname + PWD via OSC 7
+    printf \e\]7\;file://%s%s\a $hostname (string escape --style=url -- $PWD)
 end
 
 function fish_right_prompt
