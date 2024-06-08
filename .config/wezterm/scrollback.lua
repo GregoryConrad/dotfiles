@@ -11,9 +11,11 @@ wezterm.on('open-hx-with-scrollback', function(window, pane)
   f:flush()
   f:close()
 
-  local editor_command = { 'zsh', '--login', '-c', 'hx ' .. filename }
-  local _, new_pane, _ = window:mux_window():spawn_tab { args = editor_command }
-  new_pane:send_text('ge')
+  -- Helix (and other Homebrew-installed things) aren't in WezTerm's pretty minimal PATH,
+  -- so we instead spawn the default shell and manually open hx from there.
+  local _, new_pane, _ = window:mux_window():spawn_tab {}
+  new_pane:send_text(wezterm.shell_join_args{'hx', filename} .. ' ; exit\n')
+  new_pane:send_text('ge') -- goto end of file
 
   -- Wait "enough" time for the editor to read the file before removing it.
   -- (Reading the file is asynchronous and not awaitable.)
