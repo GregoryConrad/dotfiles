@@ -11,7 +11,7 @@ function fish_prompt
 
     # Working directory
     if set git_root (git rev-parse --show-toplevel 2> /dev/null)
-        set repo_name (string replace "$(dirname $git_root)/" '' $PWD)
+        set repo_name (string replace "$(dirname $git_root)/" '' (pwd -P))
         set -a cells " $repo_name"
         set -a fg_colors $default_fg_color
         set -a bg_colors 5fd7ff
