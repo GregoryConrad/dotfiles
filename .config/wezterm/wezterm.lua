@@ -9,6 +9,9 @@ config:set_strict_mode(true)
 config.font = wezterm.font 'Hack'
 config.font_size = 14
 config.color_scheme = 'Catppuccin Mocha (Gogh)'
+config.colors = {
+  split = wezterm.color.get_builtin_schemes()[config.color_scheme].ansi[2],
+}
 
 local TITLEBAR_COLOR = '#333333'
 config.native_macos_fullscreen_mode = true
