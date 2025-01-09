@@ -28,19 +28,12 @@ function set_background(config, is_fullscreen)
   if is_fullscreen then
     config.window_background_opacity = nil
     config.background = {
-      -- NOTE: First layer here is a workaround for a bug that (only sometimes)
-      -- shows the desktop background behind the terminal when in fullscreen
-      {
-        source = {
-          -- NOTE: Using File to workaround a Wezterm bug that doesn't respect just Color
-          File = wezterm.home_dir .. '/.config/wezterm/black-pixel.png',
-        },
-      },
       {
         source = {
           File = wezterm.home_dir .. '/.config/background.jpg',
         },
-        attachment = { Parallax = 0.1 },
+        -- NOTE: parallax is a bit buggy with opacity causing double images at the moment
+        -- attachment = { Parallax = 0.1 },
         repeat_y = 'Mirror',
         horizontal_align = 'Center',
         opacity = 0.4,
