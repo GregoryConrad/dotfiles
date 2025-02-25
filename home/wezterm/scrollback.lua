@@ -11,7 +11,7 @@ wezterm.on('open-hx-with-scrollback', function(window, pane)
   f:flush()
   f:close()
 
-  -- Helix (and other Homebrew-installed things) aren't in WezTerm's pretty minimal PATH,
+  -- WezTerm has a pretty minimal PATH,
   -- so we instead spawn the default shell and manually open hx from there.
   local _, new_pane, _ = window:mux_window():spawn_tab {}
   new_pane:send_text(wezterm.shell_join_args{'hx', filename} .. ' ; exit\n')

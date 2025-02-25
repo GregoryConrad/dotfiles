@@ -6,7 +6,7 @@ require 'scrollback'
 local config = wezterm.config_builder()
 config:set_strict_mode(true)
 
-config.font = wezterm.font 'Hack'
+config.font = wezterm.font 'Hack Nerd Font'
 config.font_size = 14
 config.color_scheme = 'Catppuccin Mocha (Gogh)'
 config.colors = {
@@ -17,7 +17,7 @@ local TITLEBAR_COLOR = '#333333'
 config.native_macos_fullscreen_mode = true
 config.window_decorations = 'INTEGRATED_BUTTONS|RESIZE'
 config.window_frame = {
-  font = wezterm.font { family = 'Hack', weight = 'Bold' },
+  font = wezterm.font { family = 'Hack Nerd Font', weight = 'Bold' },
   font_size = 13.0,
   active_titlebar_bg = TITLEBAR_COLOR,
   inactive_titlebar_bg = TITLEBAR_COLOR,
