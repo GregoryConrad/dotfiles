@@ -1,31 +1,23 @@
 { ... }:
 {
-  programs.fish =
-    let
-      fishFunctionsDir = ./fish/functions;
-      fishFunctionFiles = builtins.attrNames (builtins.readDir fishFunctionsDir);
-      fishFunctions = builtins.listToAttrs (
-        map (name: {
-          name = builtins.replaceStrings [ ".fish" ] [ "" ] name;
-          value = builtins.readFile (fishFunctionsDir + "/${name}");
-        }) fishFunctionFiles
-      );
-    in
-    {
-      enable = true;
-      functions = fishFunctions;
-      shellInit = ''
-        set -gx SUDOEDIT $EDITOR
-      '';
-      interactiveShellInit = ''
-        set fish_greeting
+  programs.fish = {
+    enable = true;
+    shellInit = ''
+      set -gx SUDOEDIT $EDITOR
+    '';
+    interactiveShellInit = ''
+      set fish_greeting
 
-        # TODO figure out why we have to call these next few in order for stuff not to break
-        fish_helix_key_bindings
-        fish_prompt
-        fish_right_prompt
-      '';
-    };
+      # fish_helix_key_bindings is non-idempotent, so manually disable first
+      fish_default_key_bindings
+      fish_helix_key_bindings
+    '';
+  };
+
+  home.file.".config/fish/functions" = {
+    source = ./fish/functions;
+    recursive = true;
+  };
 
   programs.direnv = {
     enable = true;

@@ -109,7 +109,7 @@
               home-manager.extraSpecialArgs = specialArgs;
               home-manager.users.${username} = nixpkgs.lib.mkMerge [
                 (import ./home)
-                (if builtins.pathExists workExtrasPath then import workExtrasPath else {})
+                (if builtins.pathExists workExtrasPath then import workExtrasPath else { })
               ];
             }
           ];
