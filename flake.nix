@@ -47,7 +47,7 @@
           inherit specialArgs;
           system = "x86_64-linux";
           modules = [
-            ./hosts/nixos-server.nix
+            ./hosts/nixos-server
 
             home-manager.nixosModules.home-manager
             {
